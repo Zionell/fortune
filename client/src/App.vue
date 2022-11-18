@@ -1,6 +1,12 @@
 <template>
   <div class="wheelOfFortune">
-    <canvas ref="wheel" class="wheel" width="700" height="700"></canvas>
+    <img class="logo" src="./assets/logo.png" alt="Phomemo" />
+    <canvas
+      ref="wheel"
+      class="wheel"
+      :width="isMobile ? '360' : '700'"
+      :height="isMobile ? '360' : '700'"
+    ></canvas>
     <div ref="spin" class="spin">SPIN</div>
     <transition>
       <modalWindow v-if="isModal" :prize="prize" @send="sendMail($event)" />
@@ -45,6 +51,10 @@ export default {
 
     arc() {
       return (2 * this.PI) / this.sectors.length;
+    },
+
+    isMobile() {
+      return window.innerWidth < 768;
     },
   },
 
@@ -157,7 +167,15 @@ export default {
       this.ctx.rotate(ang + this.arc / 2);
       this.ctx.textAlign = "right";
       this.ctx.fillStyle = "#fff";
-      this.ctx.font = "bold 15px sans-serif";
+
+      if (this.isMobile) {
+        this.ctx.font = "regular 10px sans-serif";
+        this.ctx.width = "10px";
+        this.ctx.whiteSpace = "break-word";
+      } else {
+        this.ctx.font = "bold 15px sans-serif";
+      }
+
       this.ctx.fillText(sector.label, this.rad - 10, 10);
       //
       this.ctx.restore();
@@ -171,6 +189,7 @@ export default {
   margin: 0;
   padding: 0;
 }
+
 .wheelOfFortune {
   position: relative;
   overflow: hidden;
@@ -179,6 +198,17 @@ export default {
   align-items: center;
   width: 100%;
   height: 100vh;
+  background: #efd1ff;
+}
+
+.logo {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 2px 2px #efd1ff;
 }
 
 .wheel {
@@ -203,15 +233,26 @@ export default {
   box-shadow: 0 0 0 8px currentColor, 0 0 15px 5px rgba(0, 0, 0, 0.6);
   border-radius: 50%;
   transition: 0.8s;
-}
 
-.spin::after {
-  content: "";
-  position: absolute;
-  top: -17px;
-  border: 10px solid transparent;
-  border-bottom-color: currentColor;
-  border-top: none;
+  &::after {
+    content: "";
+    position: absolute;
+    top: -17px;
+    border: 10px solid transparent;
+    border-bottom-color: currentColor;
+    border-top: none;
+  }
+
+  @media (max-width: 768px) {
+    font: 15px sans-serif;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 0 0 8px currentColor, 0 0 5px 5px rgba(0, 0, 0, 0.6);
+
+    &::after {
+      top: -14px;
+    }
+  }
 }
 
 .v-enter-active,

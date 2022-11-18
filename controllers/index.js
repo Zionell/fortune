@@ -3,11 +3,11 @@ const transporter = require("../mailer")
 class Controllers {
     async content(req, res) {
         const content = [
-            { color: "#f82", label: "Фломастеры" },
-            { color: "#0bf", label: "Стикеры" },
-            { color: "#fb0", label: "Чехол для То2" },
-            { color: "#0fb", label: "Рулон бумаги" },
-            { color: "#b0f", label: "Шоколад" },
+            { color: "#fd0100", label: "Фломастеры" },
+            { color: "#333ed4", label: "Стикеры" },
+            { color: "#f76915", label: "Чехол для То2" },
+            { color: "#a0d636", label: "Рулон бумаги" },
+            { color: "#eede04", label: "Шоколад" },
             { color: "#f0b", label: "Скидка 5% на след. покупку" },
         ];
         res.send(content)

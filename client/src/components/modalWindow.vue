@@ -108,7 +108,7 @@ export default {
 .input {
   padding: 5px 10px;
   border-radius: 10px;
-  border: 2px solid green;
+  border: 2px solid #731e77;
   transition: 0.3s linear;
 
   &:hover {
@@ -126,9 +126,10 @@ export default {
 }
 
 .btn {
-  background: aquamarine;
+  background: #731e77;
   border: none;
-  padding: 5px 10px;
+  color: white;
+  padding: 7px 10px;
   border-radius: 20px;
   transition: 0.3s linear;
 
