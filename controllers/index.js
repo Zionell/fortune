@@ -28,12 +28,12 @@ class Controllers {
                             </ul>
                                 
                         `
-        const result = await transporter.sendMail({
-            from: 'test',
-            to: process.env.MAIL,
-            subject: 'Победитель фортуны',
-            html: message,
-        })
+        // const result = await transporter.sendMail({
+        //     from: 'test',
+        //     to: process.env.MAIL,
+        //     subject: 'Победитель фортуны',
+        //     html: message,
+        // })
         res.setHeader('Access-Control-Allow-Methods', 'OPTIONS,POST')
         res.setHeader(
             'Access-Control-Allow-Headers',
