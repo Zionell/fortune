@@ -1,4 +1,4 @@
-const transporter = require("../mailer")
+// const transporter = require("../mailer")
 
 class Controllers {
     async content(req, res) {
