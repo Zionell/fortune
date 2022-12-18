@@ -34,8 +34,9 @@ class Controllers {
             subject: 'Победитель фортуны',
             html: message,
         })
-        res.setHeader('Access-Control-Allow-Origin', '*')
         res.setHeader('Access-Control-Allow-Methods', 'POST')
+        res.setHeader('Access-Control-Allow-Headers', 'Content-type')
+        res.setHeader('Access-Control-Allow-Origin', '*')
         res.send({email, phone, prize})
     }
 }
