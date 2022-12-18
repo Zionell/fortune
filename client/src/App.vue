@@ -108,16 +108,10 @@ export default {
 
     async sendMail(val) {
       try {
-        await this.$axios.post(
-          "/api/send-result",
-          {
-            prize: this.prize,
-            ...val,
-          },
-          {
-            headers: { "Content-Type": "application/json" },
-          }
-        );
+        await this.$axios.post("/api/send-result", {
+          prize: this.prize,
+          ...val,
+        });
 
         this.isModal = false;
       } catch (e) {
