@@ -9,19 +9,19 @@
   "routes": [
     {
       "src": "/index.html",
-      "dest": "/client/dist/index.html"
+      "dest": "/index.html"
     }, {
       "src": "/favicon.png",
-      "dest": "/client/dist/favicon.png"
+      "dest": "/favicon.png"
     }, {
       "src": "/(.*).png",
-      "dest": "/client/dist/img/"
+      "dest": "/img/"
     }, {
       "src": "/(.*).css",
-      "dest": "/client/dist/css/"
+      "dest": "/css/"
     }, {
       "src": "/(.*).js",
-      "dest": "/client/dist/js/"
+      "dest": "/js/"
     }, {
       "src": "/(.*)",
       "dest": "index.js"
