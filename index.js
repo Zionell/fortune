@@ -21,11 +21,12 @@ app.get('*', (req, res) => {
     //     'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
     // )
     // res.setHeader('Access-Control-Allow-Origin', '*')
-    res.sendFile(path.join(__dirname, '/client/dist', '/index.html'), function (err) {
-        if (err) {
-            res.status(500).send(err)
-        }
-    })
+    // res.sendFile(path.join(__dirname, '/client/dist', '/index.html'), function (err) {
+    //     if (err) {
+    //         res.status(500).send(err)
+    //     }
+    // })
+    res.send('Server started')
 })
 
 app.listen(port, () => {
