@@ -15,31 +15,31 @@ class Controllers {
 
     async sendMail(req, res) {
         const {email, phone, prize} = req.body
-        const message = `
-                         <h1>Пользователь ${email} выиграл ${prize}.</h1>
-                            <div>Способы связи:</div>
-                            <ul>
-                                <li>
-                                    Почта: ${email}
-                                </li>
-                                <li>
-                                    Телефон: ${phone}
-                                </li>
-                            </ul>
-                                
-                        `
+        // const message = `
+        //                  <h1>Пользователь ${email} выиграл ${prize}.</h1>
+        //                     <div>Способы связи:</div>
+        //                     <ul>
+        //                         <li>
+        //                             Почта: ${email}
+        //                         </li>
+        //                         <li>
+        //                             Телефон: ${phone}
+        //                         </li>
+        //                     </ul>
+        //
+        //                 `
         // const result = await transporter.sendMail({
         //     from: 'test',
         //     to: process.env.MAIL,
         //     subject: 'Победитель фортуны',
         //     html: message,
         // })
-        res.setHeader('Access-Control-Allow-Methods', 'OPTIONS,POST')
-        res.setHeader(
-            'Access-Control-Allow-Headers',
-            'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-        )
-        res.setHeader('Access-Control-Allow-Origin', '*')
+        // res.setHeader('Access-Control-Allow-Methods', 'OPTIONS,POST')
+        // res.setHeader(
+        //     'Access-Control-Allow-Headers',
+        //     'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+        // )
+        // res.setHeader('Access-Control-Allow-Origin', '*')
         res.send({email, phone, prize})
     }
 }
