@@ -15,11 +15,12 @@ app.use(express.json());
 app.use('/api', router);
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/client/dist', '/index.html'), function (err) {
-        if (err) {
-            res.status(500).send(err)
-        }
-    })
+    // res.sendFile(path.join(__dirname, '/index.html'), function (err) {
+    //     if (err) {
+    //         res.status(500).send(err)
+    //     }
+    // })
+    res.send('hello')
 })
 
 app.listen(port, () => {
