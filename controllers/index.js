@@ -1,4 +1,4 @@
-const transporter = require("../mailer")
+// const transporter = require("../mailer")
 
 class Controllers {
     async content(req, res) {
@@ -28,13 +28,21 @@ class Controllers {
                             </ul>
 
                         `
-        const result = await transporter.sendMail({
-            from: 'test',
-            to: process.env.MAIL,
-            subject: 'Победитель фортуны',
-            html: message,
-        })
-        res.send({email, phone, prize})
+        // const result = await transporter.sendMail({
+        //     from: 'test',
+        //     to: process.env.MAIL,
+        //     subject: 'Победитель фортуны',
+        //     html: message,
+        // })
+        res.send({email, phone, test: {
+            host: process.env.MAIL_HOST,
+                port: process.env.MAIL_PORT,
+                secure: true,
+                auth: {
+                user: process.env.MAIL,
+                    pass: process.env.PASSWORD,
+            },
+        }})
     }
 }
 
