@@ -1,4 +1,4 @@
-// const transporter = require("../mailer")
+const transporter = require("../mailer")
 
 class Controllers {
     async content(req, res) {
@@ -28,19 +28,13 @@ class Controllers {
                             </ul>
 
                         `
-        // const result = await transporter.sendMail({
-        //     from: 'test',
-        //     to: process.env.MAIL,
-        //     subject: 'Победитель фортуны',
-        //     html: message,
-        // })
-        // res.setHeader('Access-Control-Allow-Methods', 'OPTIONS,POST')
-        // res.setHeader(
-        //     'Access-Control-Allow-Headers',
-        //     'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-        // )
-        // res.setHeader('Access-Control-Allow-Origin', '*')
-        res.send({email, phone, mail: process.env.MAIL})
+        const result = await transporter.sendMail({
+            from: 'test',
+            to: process.env.MAIL,
+            subject: 'Победитель фортуны',
+            html: message,
+        })
+        res.send({email, phone, prize})
     }
 }
 
