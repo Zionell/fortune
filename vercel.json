@@ -8,6 +8,21 @@
   ],
   "routes": [
     {
+      "src": "/index.html",
+      "dest": "/client/dist/index.html"
+    }, {
+      "src": "/favicon.png",
+      "dest": "/client/dist/favicon.png"
+    }, {
+      "src": "/(.*).png",
+      "dest": "/client/dist/img/"
+    }, {
+      "src": "/(.*).css",
+      "dest": "/client/dist/css/"
+    }, {
+      "src": "/(.*).js",
+      "dest": "/client/dist/js/"
+    }, {
       "src": "/(.*)",
       "dest": "index.js"
     }

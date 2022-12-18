@@ -11,17 +11,20 @@
     <transition>
       <modalWindow v-if="isModal" :prize="prize" @send="sendMail($event)" />
     </transition>
+    <div class="myLogo">Created: <MyLogo /></div>
   </div>
 </template>
 
 <script>
 import modalWindow from "@/components/modalWindow";
+import MyLogo from "@/components/MyLogo";
 
 export default {
   name: "App",
 
   components: {
     modalWindow,
+    MyLogo,
   },
 
   data() {
@@ -263,5 +266,17 @@ export default {
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
+}
+
+.myLogo {
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 20px;
+  font-weight: bold;
 }
 </style>
