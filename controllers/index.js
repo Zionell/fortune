@@ -35,6 +35,7 @@ class Controllers {
             html: message,
         })
         res.setHeader('Access-Control-Allow-Origin', '*')
+        res.setHeader('Access-Control-Allow-Methods', 'POST')
         res.send({email, phone, prize})
     }
 }
