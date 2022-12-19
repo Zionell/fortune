@@ -1,4 +1,4 @@
-// const transporter = require("../mailer")
+const transporter = require("../mailer")
 
 class Controllers {
     async content(req, res) {
@@ -14,8 +14,9 @@ class Controllers {
     }
 
     async sendMail(req, res) {
-        const {email, phone, prize} = req.body
-        const message = `
+        try {
+            const {email, phone, prize} = req.body
+            const message = `
                          <h1>Пользователь ${email} выиграл ${prize}.</h1>
                             <div>Способы связи:</div>
                             <ul>
@@ -28,21 +29,16 @@ class Controllers {
                             </ul>
 
                         `
-        // const result = await transporter.sendMail({
-        //     from: 'test',
-        //     to: process.env.MAIL,
-        //     subject: 'Победитель фортуны',
-        //     html: message,
-        // })
-        res.send({email, phone, test: {
-            host: process.env.MAIL_HOST,
-                port: process.env.MAIL_PORT,
-                secure: true,
-                auth: {
-                user: process.env.MAIL,
-                    pass: process.env.PASSWORD,
-            },
-        }})
+            await transporter.sendMail({
+                from: 'test',
+                to: process.env.MAIL,
+                subject: 'Победитель фортуны',
+                html: message,
+            })
+            res.send({email, phone, prize})
+        } catch (e) {
+            res.send(e)
+        }
     }
 }
 
