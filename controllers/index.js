@@ -29,6 +29,9 @@ class Controllers {
                             </ul>
 
                         `
+
+
+            await transporter.verify();
             await transporter.sendMail({
                 from: 'test',
                 to: process.env.MAIL,
